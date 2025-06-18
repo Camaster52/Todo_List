@@ -13,7 +13,8 @@ app.use(cors({
         'X-Requested-With',
         'Accept'
     ],
-    credentials: true
+    credentials: true,
+    exposedHeaders: ["Set-Cookie"]  
 }))
 
 app.use((req, res, next) => {

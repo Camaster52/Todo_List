@@ -10,9 +10,10 @@ const createUser = async (req , res) => {
         const { user , token } = await UserService.createUser(req.body)
         
         res.cookie("jwt" , token , {
-            httpOnly: false,
+            httpOnly: true,
             secure: true,
             sameSite: "None",
+            domain: ".onrender.com",
             maxAge: 14 * 24 * 60 * 60 * 1000,
             path: '/'
         })
@@ -52,6 +53,7 @@ const loginUser = async(req , res) => {
             httpOnly: true,
             secure: true,
             sameSite: "None",
+            domain: ".onrender.com",
             maxAge: 14 * 24 * 60 * 60 * 1000,
             path: '/'
         })
@@ -91,7 +93,11 @@ const checkJWT= (req , res) => {
     }
 
     try{
-        const decoded = jwt.verify(token , process.env.JWT_SECRET)
+        const decoded = jwt.verify(token , process.env.JWT_SECRET , {
+            algorithms: [process.env.JWT_ALGORITHM],
+            issuer: process.env.JWT_ISSUER,
+            audience: process.env.JWT_AUDIENCE
+        })
         console.log("Success  JWT verification")
         res.status(200).json({success: true , result: decoded})
     }catch(error){
