@@ -10,10 +10,9 @@ const createUser = async (req , res) => {
         const { user , token } = await UserService.createUser(req.body)
         
         res.cookie("jwt" , token , {
-            httpOnly: true,
+            httpOnly: false,
             secure: true,
             sameSite: "None",
-            domain: '.onrender.com',
             maxAge: 14 * 24 * 60 * 60 * 1000,
             path: '/'
         })
@@ -53,7 +52,6 @@ const loginUser = async(req , res) => {
             httpOnly: true,
             secure: true,
             sameSite: "None",
-            domain: '.onrender.com',
             maxAge: 14 * 24 * 60 * 60 * 1000,
             path: '/'
         })
