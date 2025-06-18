@@ -5,7 +5,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 
 app.use(cors({
-    origin: ["https://pizdec-list.onrender.com"],
+    origin: "https://pizdec-list.onrender.com",
     methods: ["GET" , "POST" , "OPTIONS"],
     allowedHeaders: [
         'Content-Type',
@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors({ origin: true, credentials: true }))
 
 const SERVER_PORT = 8080
 
