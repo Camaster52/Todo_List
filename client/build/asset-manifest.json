@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.99142f6b.css",
+    "main.js": "/static/js/main.de5c4805.js",
+    "static/media/AnyConv.com__Montserrat-VariableFont_wght.woff2": "/static/media/AnyConv.com__Montserrat-VariableFont_wght.03bf6d8f6cb66c4eab1a.woff2",
+    "static/media/icons8-гамбургер-меню.svg": "/static/media/icons8-гамбургер-меню.9f32f397d68ee81cfd4bafb21a264926.svg",
+    "index.html": "/index.html",
+    "main.99142f6b.css.map": "/static/css/main.99142f6b.css.map",
+    "main.de5c4805.js.map": "/static/js/main.de5c4805.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99142f6b.css",
+    "static/js/main.de5c4805.js"
+  ]
+}
