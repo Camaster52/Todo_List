@@ -1,5 +1,5 @@
 const express = require("express");
-const { checkDataBaseConnection , pool } = require("./DatabaseConnection/db.js")
+const { checkDataBaseConnection } = require("./DatabaseConnection/db.js")
 const app = express()
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
@@ -18,9 +18,9 @@ app.use(cors({
 }))
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Expose-Headers", "Set-Cookie");
-    next();
+    res.header('Access-Control-Allow-Credentials', 'true')
+    res.header('Access-Control-Allow-Origin', req.headers.origin)
+    next()
 });
 
 app.use(express.json())

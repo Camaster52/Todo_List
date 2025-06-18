@@ -12,10 +12,11 @@ const createUser = async (req , res) => {
         res.cookie("jwt" , token , {
             httpOnly: true,
             secure: true,
-            sameSite: "None",
-            domain: ".onrender.com",
+            sameSite: 'None',
+            domain: 'pizdec-list.onrender.com', 
             maxAge: 14 * 24 * 60 * 60 * 1000,
-            path: '/'
+            path: '/',
+            partitioned: true
         })
         res.status(200).json({
             success: true, 
@@ -52,10 +53,11 @@ const loginUser = async(req , res) => {
         res.cookie("jwt" , token , {
             httpOnly: true,
             secure: true,
-            sameSite: "None",
-            domain: ".onrender.com",
+            sameSite: 'None',
+            domain: 'pizdec-list.onrender.com', 
             maxAge: 14 * 24 * 60 * 60 * 1000,
-            path: '/'
+            path: '/',
+            partitioned: true
         })
         res.status(200).json({
             success: true, 
