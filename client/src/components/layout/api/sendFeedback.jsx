@@ -10,11 +10,11 @@ const SendFeedback = async ({ problem , name }) => {
         const result = await response.json()
 
         if (!response.ok) {
-            throw new Error(result.message || "Server error")
+            throw new Error("Server error: " , response.status)
         }
 
         console.log("Success feedback:", result)
-        return result
+        return { success: true }
     }catch(error){
         console.error("Error: ", error.message)
         throw error

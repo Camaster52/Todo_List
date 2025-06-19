@@ -76,11 +76,12 @@ const Footer = () => {
 
 
     const sendFeedback = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
+        
         try{
             const response = await SendFeedback({problem: inputValue, name: inputValueName})
             const result = await response.json()
-            
+    
             setInputValue('');
             setInputValueName('');
             setIsOpenModal(false);
