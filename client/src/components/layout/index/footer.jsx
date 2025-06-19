@@ -80,14 +80,12 @@ const Footer = () => {
         try{
             const response = await SendFeedback({problem: inputValue, name: inputValueName})
             const result = await response.json()
-
-            if(result && result.success){ 
+            
             setInputValue('');
             setInputValueName('');
             setIsOpenModal(false);
         }
-
-        }catch(error){
+        catch(error){
             console.error("Feedback error: " , error.message)
         }
     }
