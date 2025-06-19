@@ -7,14 +7,13 @@ const SendFeedback = async ({ problem , name }) => {
             body: JSON.stringify({problem: problem , name: name})
         })
 
-        const result = await response.json()
-
         if (!response.ok) {
-            throw new Error(result.message || "Server error")
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Server error");
         }
 
-        console.log("Success feedback:", result)
-        return result
+        console.log("Success feedback: " , result)
+        return await response.json();
     }catch(error){
         console.error("Error: ", error.message)
         throw error
